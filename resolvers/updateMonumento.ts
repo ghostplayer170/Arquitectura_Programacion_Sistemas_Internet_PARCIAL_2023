@@ -5,7 +5,7 @@ const updateMonumento = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
     const { nombre, descripcion, codigo_postal, codigo_ISO } = req.body;
-    if (!name) {
+    if (!nombre || !descripcion || !codigo_postal || !codigo_ISO) {
       res.status(400).send("Name and age are required");
       return;
     }
