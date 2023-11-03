@@ -1,15 +1,6 @@
-export enum RAZAS {
-    Hobbits="Hobbits",
-    Humanos="Humanos",
-    Elfos="Elfos",
-    Enanos="Enanos",
-    Ents="Ents"
-}
-
-export type Personaje = {
-    id: string;
-    name: string;
-    raza: RAZAS
+export type Monumento = {
+    nombre: string;
     descripcion: string;
-    habilidades: [];
+    codigo_postal: number;
+    codigo_ISO: string;
 };
