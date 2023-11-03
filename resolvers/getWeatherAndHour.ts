@@ -18,27 +18,25 @@ export const getWeather = async (ciudad: string): Promise<WeatherAndLocation> =>
 
   const horaActual = data.location.localtime;
 
-  const infoCondicionesMetereologicas = data.map(elem => {
-    return {
-        wind_mph: elem.wind_mph,
-        wind_kph: elem.wind_kph,
-        wind_degree: elem.wind_degree,
-        wind_dir: elem.wind_dir,
-        pressure_mb: elem.pressure_mb,
-        pressure_in: elem.pressure_in,
-        precip_mm: elem.precip_mm,
-        precip_in: elem.precip_in,
-        humidity: elem.humidity,
-        cloud: elem.cloud,
-        feelslike_c: elem.feelslike_c,
-        feelslike_f: elem.feelslike_f,
-        vis_km: elem.vis_km,
-        vis_miles: elem.vis_miles,
-        uv: elem.uv,
-        gust_mph: elem.gust_mph,
-        gust_kph: elem.gust_kph
+  const infoCondicionesMetereologicas = {
+        wind_mph: data.wind_mph,
+        wind_kph: data.wind_kph,
+        wind_degree: data.wind_degree,
+        wind_dir: data.wind_dir,
+        pressure_mb: data.pressure_mb,
+        pressure_in: data.pressure_in,
+        precip_mm: data.precip_mm,
+        precip_in: data.precip_in,
+        humidity: data.humidity,
+        cloud: data.cloud,
+        feelslike_c: data.feelslike_c,
+        feelslike_f: data.feelslike_f,
+        vis_km: data.vis_km,
+        vis_miles: data.vis_miles,
+        uv: data.uv,
+        gust_mph: data.gust_mph,
+        gust_kph: data.gust_kph
     }
-  })
 
   return {
     horaActual,

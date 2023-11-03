@@ -16,8 +16,6 @@ const getMonumento = async (req: Request, res: Response) => {
 
     const infoWeatherAndLocation: WeatherAndLocation = await getWeather(monumento.ciudad);
 
-    console.log(infoWeatherAndLocation)
-
     res.status(200).send({ 
         id: monumento._id.toString(),
         nombre: monumento.nombre,
