@@ -24,6 +24,7 @@ const addMonumento = async (req: Request, res: Response) => {
     const response = await fetch(
       `https://restcountries.com/v3.1/alpha/${codigo_ISO}`
     );
+
     if (response.status !== 200) {
       res.status(response.status).send(response.statusText);
       return;
@@ -33,8 +34,8 @@ const addMonumento = async (req: Request, res: Response) => {
     const infoPais = await response.json();
 
     const continente = infoPais.region;
-    const pais = infoPais.capital[0] || "Not founded";
-    const ciudad = infoPais.name.common;
+    const pais = infoPais.name.common;
+    const ciudad = infoPais.capital[0];
 
     // Caso contrario, crea un nuevo monumento y lo guarda en la base de datos.
     const newMonumento = new MonumentoModel({ nombre, descripcion, codigo_postal, codigo_ISO, continente, ciudad, pais });
