@@ -14,7 +14,7 @@ const getMonumento = async (req: Request, res: Response) => {
       return;
     }
 
-    monumentos.map((elem) => {
+    const todosMonumentos = monumentos.forEach((elem) => {
         return { 
             id: elem._id.toString(),
             nombre: elem.nombre,
@@ -24,7 +24,7 @@ const getMonumento = async (req: Request, res: Response) => {
     
     // Caso contrario, envía una respuesta con la lista de monumentos.
     res.status(200).send({
-        monumentos
+        todosMonumentos
     });
 
   } catch (error) {
