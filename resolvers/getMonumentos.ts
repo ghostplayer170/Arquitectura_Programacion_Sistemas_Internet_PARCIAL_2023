@@ -14,12 +14,12 @@ const getMonumento = async (req: Request, res: Response) => {
       return;
     }
 
-    const todosMonumentos = monumentos.forEach((elem) => {
-        return { 
-            id: elem._id.toString(),
-            nombre: elem.nombre,
-            pais: elem.pais
-        }
+    const todosMonumentos = monumentos.map((elem) => {
+        return{ 
+                id: elem._id.toString(),
+                nombre: elem.nombre,
+                pais: elem.pais
+            }
     })
     
     // Caso contrario, envía una respuesta con la lista de monumentos.
