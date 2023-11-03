@@ -24,12 +24,7 @@ const updateMonumento = async (req: Request, res: Response) => {
       return;
     }
 
-    res.status(200).send({
-        name: updatedMonumento.nombre,
-        descripcion: updatedMonumento.descripcion,
-        codigo_postal: updatedMonumento.codigo_postal,
-        codigo_ISO: updatedMonumento.codigo_ISO
-    });
+    res.status(200).send("Monumento Updated");
     
   } catch (error) {
     res.status(500).send(error.message);

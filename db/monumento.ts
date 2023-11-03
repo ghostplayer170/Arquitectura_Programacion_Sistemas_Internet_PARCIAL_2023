@@ -8,7 +8,12 @@ const MonumentoSchema = new Schema(
     nombre: { type: String, required: true, unique: true },
     descripcion: { type: String, required: true },
     codigo_postal: { type: Number, required: true },
-    codigo_ISO: { type: String, required: true } 
+    codigo_ISO: { type: String, required: true },
+    ciudad: { type: String, required: true },
+    pais: { type: String, required: true },
+    continente: { type: String, required: true },
+    horaActual: { type: String, required: false },
+    condicionesMetereologicas: { type: String, required: false },
   },
 // { timestamps: true } //Añade dos campos creado y modificado
 );

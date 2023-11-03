@@ -13,6 +13,14 @@ const getMonumento = async (req: Request, res: Response) => {
       res.status(404).send("Monumentos not found");
       return;
     }
+
+    monumentos.map((elem) => {
+        return { 
+            id: elem._id.toString(),
+            nombre: elem.nombre,
+            pais: elem.pais
+        }
+    })
     
     // Caso contrario, envía una respuesta con la lista de monumentos.
     res.status(200).send({
