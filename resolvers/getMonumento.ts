@@ -8,15 +8,15 @@ const getMonumento = async (req: Request, res: Response) => {
     const { id } = req.params;
 
     // Busca la factura correspondiente al id proporcionado.
-    const invoice = await MonumentoModel.findOne({ _id: id }).exec();
+    const monumento = await MonumentoModel.findOne({ _id: id }).exec();
 
     // Si no encuentra la factura.
-    if (!invoice) {
+    if (!monumento) {
       res.status(404).send("Monumento not found");
       return;
     }
     // Caso contrario, envía una respuesta con la factura correspondiente.
-    res.status(200).send({ invoice });
+    res.status(200).send({ monumento });
 
   } catch (error) {
     res.status(404).send(error.message);
