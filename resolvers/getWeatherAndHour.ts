@@ -15,6 +15,7 @@ export const getWeather = async (ciudad: string): Promise<WeatherAndLocation> =>
     throw new Error("Cannot fetch weather");
   }
   const data = await response.json();
+  
   const horaActual = data.location.localtime;
 
   return {
