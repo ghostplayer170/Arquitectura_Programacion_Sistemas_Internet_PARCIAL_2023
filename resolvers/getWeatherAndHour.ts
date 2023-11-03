@@ -1,5 +1,6 @@
 import { WeatherAndLocation } from "../types.ts";
 import { load } from "https://deno.land/std@0.202.0/dotenv/mod.ts";
+import { CondicionesMetereologicas } from "../types.ts"
 const env = await load();
 
 export const getWeather = async (ciudad: string): Promise<WeatherAndLocation> => {
@@ -18,7 +19,7 @@ export const getWeather = async (ciudad: string): Promise<WeatherAndLocation> =>
 
   const horaActual = data.location.localtime;
 
-  const infoCondicionesMetereologicas = {
+  const infoCondicionesMetereologicas: CondicionesMetereologicas = {
         wind_mph: data.wind_mph,
         wind_kph: data.wind_kph,
         wind_degree: data.wind_degree,
