@@ -15,12 +15,34 @@ export const getWeather = async (ciudad: string): Promise<WeatherAndLocation> =>
     throw new Error("Cannot fetch weather");
   }
   const data = await response.json();
-  
+
   const horaActual = data.location.localtime;
+
+  const infoCondicionesMetereologicas = data.map(elem => {
+    return {
+        wind_mph: elem.wind_mph,
+        wind_kph: elem.wind_kph,
+        wind_degree: elem.wind_degree,
+        wind_dir: elem.wind_dir,
+        pressure_mb: elem.pressure_mb,
+        pressure_in: elem.pressure_in,
+        precip_mm: elem.precip_mm,
+        precip_in: elem.precip_in,
+        humidity: elem.humidity,
+        cloud: elem.cloud,
+        feelslike_c: elem.feelslike_c,
+        feelslike_f: elem.feelslike_f,
+        vis_km: elem.vis_km,
+        vis_miles: elem.vis_miles,
+        uv: elem.uv,
+        gust_mph: elem.gust_mph,
+        gust_kph: elem.gust_kph
+    }
+  })
 
   return {
     horaActual,
-    condicionesMetereologicas: "",
+    condicionesMetereologicas: infoCondicionesMetereologicas
   };
 };
 
