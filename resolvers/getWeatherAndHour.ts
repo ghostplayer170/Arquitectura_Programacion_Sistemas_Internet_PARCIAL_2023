@@ -22,3 +22,5 @@ export const getWeather = async (ciudad: string): Promise<WeatherAndLocation> =>
     condicionesMetereologicas: "",
   };
 };
+
+export default getWeather;
