@@ -1,12 +1,12 @@
 import express from "npm:express@4.18.2";
 import mongoose from "npm:mongoose@7.6.3";
-/*
-import getPersonajes from "./resolvers/getPersonajes.ts";
-import getOnePersonaje from "./resolvers/getOnePersonaje.ts";
-import addPersonaje from "./resolvers/addPersonaje.ts";
-import deletePersonaje from "./resolvers/deletePersonaje.ts";
-import modifyPersonaje from "./resolvers/modifyPersonaje.ts";
-*/
+
+import getMonumentos from "./resolvers/getMonumentos.ts";
+import getMonumento from "./resolvers/getMonumento.ts";
+import addMonumento from "./resolvers/addMonumento.ts";
+import deleteMonumento from "./resolvers/deleteMonumento.ts";
+import updateMonumento from "./resolvers/updateMonumento.ts";
+
 import { load } from "https://deno.land/std@0.204.0/dotenv/mod.ts"; //Leer variables de entorno
 const env = await load(); //Carga Variables de entorno
 
@@ -29,15 +29,15 @@ try{
 const app = express();
 app.use(express.json());
 
-app.get("/",(req: Request, res: Response) => { res.status(200).send("PARCIAL ARQ PROGRAM SISTEMAS INTERNET"); })
-/*
+//app.get("/",(req: Request, res: Response) => { res.status(200).send("PARCIAL ARQ PROGRAM SISTEMAS INTERNET"); })
+
 app
-  .get("/api/tierramedia/personajes", getPersonajes)
-  .get("/api/tierramedia/personajes/:id", getOnePersonaje)
-  .post("/api/tierramedia/personajes", addPersonaje)
-  .delete("/api/tierramedia/personajes/:id", deletePersonaje)
-  .put("/api/tierramedia/personajes/:id", modifyPersonaje);
-*/
+  .get("/api/monumentos", getMonumentos)
+  .get("/api/monumentos/:id", getMonumento)
+  .post("/api/monumentos", addMonumento)
+  .delete("/api/monumentos/:id", deleteMonumento)
+  .put("/api/monumentos/:id", updateMonumento);
+
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });
