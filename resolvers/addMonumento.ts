@@ -33,8 +33,7 @@ const addMonumento = async (req: Request, res: Response) => {
     const infoPais = await response.json();
 
     const continente = infoPais.region;
-    let pais = infoPais.name;
-    pais = pais.common;
+    const pais = infoPais.name.common;
     const ciudad = "Paris";
 
     // Caso contrario, crea un nuevo monumento y lo guarda en la base de datos.
