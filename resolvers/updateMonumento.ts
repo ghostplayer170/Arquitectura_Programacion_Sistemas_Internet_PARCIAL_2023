@@ -25,7 +25,10 @@ const updateMonumento = async (req: Request, res: Response) => {
     }
 
     res.status(200).send({
-        updatedMonumento
+        name: updatedMonumento.nombre,
+        descripcion: updatedMonumento.descripcion,
+        codigo_postal: updatedMonumento.codigo_postal,
+        codigo_ISO: updatedMonumento.codigo_ISO
     });
     
   } catch (error) {
