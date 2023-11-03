@@ -32,6 +32,8 @@ const addMonumento = async (req: Request, res: Response) => {
     
     const infoPais = await response.json();
 
+    console.log(infoPais);
+
     const continente = infoPais.region;
     const pais = infoPais.name.common;
     const ciudad = "Paris";
